@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useTransition } from "react";
+import { useState, useTransition } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 interface BlogFiltersProps {
@@ -14,10 +14,6 @@ export function BlogFilters({ leagues, categories }: BlogFiltersProps) {
   const searchParams = useSearchParams();
   const [isPending, startTransition] = useTransition();
   const [query, setQuery] = useState(searchParams.get("q") ?? "");
-
-  useEffect(() => {
-    setQuery(searchParams.get("q") ?? "");
-  }, [searchParams]);
 
   function pushParams(nextQuery: string, nextLeague: string, nextCategory: string, featured: boolean) {
     const params = new URLSearchParams();
