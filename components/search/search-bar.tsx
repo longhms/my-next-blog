@@ -3,18 +3,21 @@
 import Link from "next/link";
 import { useDeferredValue, useEffect, useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import type { SearchResult } from "@/types/content";
+import { getDictionary } from "@/lib/i18n";
+import type { Locale, SearchResult } from "@/types/content";
 
 interface SearchBarProps {
   initialQuery?: string;
+  locale: Locale;
 }
 
-export function SearchBar({ initialQuery = "" }: SearchBarProps) {
+export function SearchBar({ initialQuery = "", locale }: SearchBarProps) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const [query, setQuery] = useState(initialQuery);
   const [results, setResults] = useState<SearchResult[]>([]);
   const deferredQuery = useDeferredValue(query);
+  const dict = getDictionary(locale);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -25,9 +28,12 @@ export function SearchBar({ initialQuery = "" }: SearchBarProps) {
         return;
       }
 
-      const response = await fetch(`/api/search?q=${encodeURIComponent(deferredQuery)}`, {
+      const response = await fetch(
+        `/api/search?q=${encodeURIComponent(deferredQuery)}&locale=${locale}`,
+        {
         signal: controller.signal,
-      });
+        },
+      );
 
       if (!response.ok) {
         return;
@@ -40,7 +46,7 @@ export function SearchBar({ initialQuery = "" }: SearchBarProps) {
     void loadSuggestions();
 
     return () => controller.abort();
-  }, [deferredQuery]);
+  }, [deferredQuery, locale]);
 
   function submitSearch(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -54,20 +60,20 @@ export function SearchBar({ initialQuery = "" }: SearchBarProps) {
       <form onSubmit={submitSearch} className="space-y-4">
         <label className="space-y-2">
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted">
-            Search the archive
+            {dict.searchPage.inputLabel}
           </span>
           <div className="flex flex-col gap-3 sm:flex-row">
             <input
               value={query}
               onChange={(event) => setQuery(event.target.value)}
-              placeholder="Arsenal, scouting, data lab, transitions..."
+              placeholder={dict.searchPage.placeholder}
               className="field-input flex-1"
             />
             <button
               type="submit"
               className="rounded-2xl bg-pitch px-5 py-3 text-sm font-semibold text-white transition hover:bg-pitch-deep"
             >
-              {isPending ? "Searching..." : "Search"}
+              {isPending ? dict.common.searching : dict.common.search}
             </button>
           </div>
         </label>
@@ -75,7 +81,7 @@ export function SearchBar({ initialQuery = "" }: SearchBarProps) {
       {results.length > 0 ? (
         <div className="mt-4 rounded-[24px] border border-line bg-white/80 p-3">
           <p className="px-2 pb-2 text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted">
-            Quick results
+            {dict.common.quickResults}
           </p>
           <div className="grid gap-2">
             {results.map((result) => (

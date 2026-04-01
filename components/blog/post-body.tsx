@@ -1,7 +1,7 @@
-import type { Post } from "@/types/content";
+import type { ResolvedPost } from "@/types/content";
 
 interface PostBodyProps {
-  post: Post;
+  post: ResolvedPost;
 }
 
 export function PostBody({ post }: PostBodyProps) {

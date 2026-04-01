@@ -13,8 +13,8 @@
   --gold: #f0b35c;
   --coral: #f08a4b;
   --line: rgba(18, 32, 55, 0.12);
-  --font-display: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
-  --font-body: "Trebuchet MS", "Segoe UI", Verdana, sans-serif;
+  --font-display: "Segoe UI", Arial, Tahoma, sans-serif;
+  --font-body: "Segoe UI", Tahoma, Arial, sans-serif;
 }
 
 @theme inline {
@@ -74,7 +74,7 @@
   .display-title {
     font-family: var(--font-display);
     letter-spacing: -0.04em;
-    line-height: 0.94;
+    line-height: 1;
     text-transform: uppercase;
   }
 

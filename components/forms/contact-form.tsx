@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { getDictionary } from "@/lib/i18n";
+import type { Locale } from "@/types/content";
 import type { ContactPayload } from "@/types/content";
 
 const initialState: ContactPayload = {
@@ -10,11 +12,16 @@ const initialState: ContactPayload = {
   message: "",
 };
 
-export function ContactForm() {
+interface ContactFormProps {
+  locale: Locale;
+}
+
+export function ContactForm({ locale }: ContactFormProps) {
   const [values, setValues] = useState(initialState);
   const [status, setStatus] = useState<string>("");
   const [errors, setErrors] = useState<string[]>([]);
   const [submitting, setSubmitting] = useState(false);
+  const dict = getDictionary(locale);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -33,12 +40,12 @@ export function ContactForm() {
     const payload: { message?: string; errors?: string[] } = await response.json();
 
     if (!response.ok) {
-      setErrors(payload.errors ?? ["Something went wrong."]);
+      setErrors(payload.errors ?? [dict.contactForm.fallbackError]);
       setSubmitting(false);
       return;
     }
 
-    setStatus(payload.message ?? "Request sent.");
+    setStatus(payload.message ?? dict.contactForm.fallbackSuccess);
     setValues(initialState);
     setSubmitting(false);
   }
@@ -47,41 +54,41 @@ export function ContactForm() {
     <form onSubmit={handleSubmit} className="panel space-y-5 p-6 sm:p-7">
       <div className="grid gap-4 sm:grid-cols-2">
         <label className="space-y-2">
-          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted">Name</span>
+          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted">{dict.contactForm.name}</span>
           <input
             className="field-input"
             value={values.name}
             onChange={(event) => setValues((current) => ({ ...current, name: event.target.value }))}
-            placeholder="Your name"
+            placeholder={dict.contactForm.namePlaceholder}
           />
         </label>
         <label className="space-y-2">
-          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted">Email</span>
+          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted">{dict.contactForm.email}</span>
           <input
             className="field-input"
             type="email"
             value={values.email}
             onChange={(event) => setValues((current) => ({ ...current, email: event.target.value }))}
-            placeholder="you@example.com"
+            placeholder={dict.contactForm.emailPlaceholder}
           />
         </label>
       </div>
       <label className="space-y-2">
-        <span className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted">Topic</span>
+        <span className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted">{dict.contactForm.topic}</span>
         <input
           className="field-input"
           value={values.topic}
           onChange={(event) => setValues((current) => ({ ...current, topic: event.target.value }))}
-          placeholder="Partnership, scouting brief, editorial inquiry..."
+          placeholder={dict.contactForm.topicPlaceholder}
         />
       </label>
       <label className="space-y-2">
-        <span className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted">Message</span>
+        <span className="text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted">{dict.contactForm.message}</span>
         <textarea
           className="field-input min-h-36 resize-y"
           value={values.message}
           onChange={(event) => setValues((current) => ({ ...current, message: event.target.value }))}
-          placeholder="Tell us what you need."
+          placeholder={dict.contactForm.messagePlaceholder}
         />
       </label>
       {errors.length > 0 ? (
@@ -99,7 +106,7 @@ export function ContactForm() {
         disabled={submitting}
         className="rounded-full bg-pitch px-5 py-3 text-sm font-semibold text-white transition hover:bg-pitch-deep disabled:opacity-60"
       >
-        {submitting ? "Sending..." : "Send request"}
+        {submitting ? dict.contactForm.sending : dict.contactForm.send}
       </button>
     </form>
   );

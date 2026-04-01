@@ -1,31 +1,33 @@
-import type { StandingRow } from "@/types/content";
+import { getDictionary, translateFormResult } from "@/lib/i18n";
+import type { Locale, StandingRow } from "@/types/content";
 
 interface StandingsTableProps {
   rows: StandingRow[];
+  locale: Locale;
 }
 
-export function StandingsTable({ rows }: StandingsTableProps) {
+export function StandingsTable({ rows, locale }: StandingsTableProps) {
+  const dict = getDictionary(locale);
+
   return (
     <section className="panel overflow-hidden">
       <div className="border-b border-line/70 px-6 py-5 sm:px-7">
-        <p className="eyebrow">Power Table</p>
+        <p className="eyebrow">{dict.home.powerTable}</p>
         <div className="mt-4 flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
-          <h2 className="display-title text-4xl text-ink sm:text-5xl">Premier League pressure points.</h2>
-          <p className="max-w-xl text-sm leading-7 text-ink-muted">
-            Top-six snapshot with recent form to keep the home page anchored in current competition context.
-          </p>
+          <h2 className="display-title text-4xl text-ink sm:text-5xl">{dict.home.pressureTitle}</h2>
+          <p className="max-w-xl text-sm leading-7 text-ink-muted">{dict.home.pressureDescription}</p>
         </div>
       </div>
       <div className="overflow-x-auto">
         <table className="min-w-full text-left text-sm">
           <thead className="bg-white/65 text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted">
             <tr>
-              <th className="px-6 py-4 sm:px-7">Team</th>
+              <th className="px-6 py-4 sm:px-7">{locale === "vi" ? "Doi" : "Team"}</th>
               <th className="px-4 py-4">P</th>
               <th className="px-4 py-4">GF</th>
               <th className="px-4 py-4">GA</th>
-              <th className="px-4 py-4">Pts</th>
-              <th className="px-6 py-4 sm:px-7">Form</th>
+              <th className="px-4 py-4">{locale === "vi" ? "Diem" : "Pts"}</th>
+              <th className="px-6 py-4 sm:px-7">{locale === "vi" ? "Phong do" : "Form"}</th>
             </tr>
           </thead>
           <tbody>
@@ -61,7 +63,7 @@ export function StandingsTable({ rows }: StandingsTableProps) {
                           key={`${row.team}-${index}`}
                           className={`inline-flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold ${tone}`}
                         >
-                          {result}
+                          {translateFormResult(result, locale)}
                         </span>
                       );
                     })}

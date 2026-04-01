@@ -1,22 +1,26 @@
 import { PostCard } from "@/components/blog/post-card";
 import { SectionHeading } from "@/components/layout/section-heading";
-import type { Post } from "@/types/content";
+import { getDictionary } from "@/lib/i18n";
+import type { Locale, ResolvedPost } from "@/types/content";
 
 interface FeaturedGridProps {
-  posts: Post[];
+  posts: ResolvedPost[];
+  locale: Locale;
 }
 
-export function FeaturedGrid({ posts }: FeaturedGridProps) {
+export function FeaturedGrid({ posts, locale }: FeaturedGridProps) {
+  const dict = getDictionary(locale);
+
   return (
     <section className="space-y-6">
       <SectionHeading
-        kicker="Featured Stories"
-        title="The stories setting the football agenda."
-        description="Long-form breakdowns on tactical patterns, squad design, and elite match detail."
+        kicker={dict.home.featuredStories}
+        title={dict.home.featuredStoriesTitle}
+        description={dict.home.featuredStoriesDescription}
       />
       <div className="grid gap-5 lg:grid-cols-3">
         {posts.map((post, index) => (
-          <PostCard key={post.slug} post={post} priority={index === 0} />
+          <PostCard key={post.slug} post={post} locale={locale} priority={index === 0} />
         ))}
       </div>
     </section>

@@ -3,16 +3,19 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { getDictionary } from "@/lib/i18n";
 import { formatDate, minutesToReadLabel } from "@/lib/format";
-import type { Post } from "@/types/content";
+import type { Locale, ResolvedPost } from "@/types/content";
 
 interface PostCardProps {
-  post: Post;
+  post: ResolvedPost;
+  locale: Locale;
   priority?: boolean;
 }
 
-export function PostCard({ post, priority = false }: PostCardProps) {
+export function PostCard({ post, locale, priority = false }: PostCardProps) {
   const [saved, setSaved] = useState(false);
+  const dict = getDictionary(locale);
 
   return (
     <article className="panel overflow-hidden transition hover:-translate-y-1 hover:shadow-[0_28px_80px_rgba(12,21,48,0.12)]">
@@ -27,7 +30,7 @@ export function PostCard({ post, priority = false }: PostCardProps) {
         />
         <div className="absolute inset-x-0 top-0 flex items-start justify-between p-4">
           <span className="rounded-full bg-white/85 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-ink">
-            {post.category}
+            {post.categoryLabel}
           </span>
           <button
             type="button"
@@ -36,15 +39,15 @@ export function PostCard({ post, priority = false }: PostCardProps) {
               saved ? "bg-ink text-white" : "bg-white/85 text-ink"
             }`}
           >
-            {saved ? "Saved" : "Save"}
+            {saved ? dict.common.saved : dict.common.save}
           </button>
         </div>
       </div>
       <div className="space-y-4 p-5">
         <div className="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.18em] text-ink-muted">
-          <span>{post.league}</span>
-          <span>{formatDate(post.publishedAt)}</span>
-          <span>{minutesToReadLabel(post.readTime)}</span>
+          <span>{post.leagueLabel}</span>
+          <span>{formatDate(post.publishedAt, locale)}</span>
+          <span>{minutesToReadLabel(post.readTime, locale)}</span>
         </div>
         <div className="space-y-3">
           <h3 className="text-2xl font-semibold text-ink">{post.title}</h3>
@@ -56,7 +59,7 @@ export function PostCard({ post, priority = false }: PostCardProps) {
             <p className="text-xs uppercase tracking-[0.18em] text-ink-muted">{post.author.role}</p>
           </div>
           <Link href={`/blog/${post.slug}`} className="rounded-full bg-pitch px-4 py-2 text-sm font-semibold text-white">
-            Read
+            {dict.common.read}
           </Link>
         </div>
       </div>

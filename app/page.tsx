@@ -5,31 +5,35 @@ import { Hero } from "@/components/home/hero";
 import { NewsletterBanner } from "@/components/home/newsletter-banner";
 import { StandingsTable } from "@/components/home/standings-table";
 import { SectionHeading } from "@/components/layout/section-heading";
+import { getDictionary } from "@/lib/i18n";
 import { getFeaturedPosts, getFixtures, getRecentPosts, getStandings } from "@/lib/posts";
+import { getCurrentLocale } from "@/lib/server-locale";
 
-export default function HomePage() {
-  const featuredPosts = getFeaturedPosts(3);
-  const recentPosts = getRecentPosts(3);
+export default async function HomePage() {
+  const locale = await getCurrentLocale();
+  const dict = getDictionary(locale);
+  const featuredPosts = getFeaturedPosts(locale, 3);
+  const recentPosts = getRecentPosts(locale, 3);
   const fixtures = getFixtures();
   const standings = getStandings();
 
   return (
     <div className="space-y-8">
-      <Hero />
-      <FeaturedGrid posts={featuredPosts} />
-      <div className="grid gap-6 xl:grid-cols-[1fr_1fr]">
-        <FixturesPanel fixtures={fixtures} />
-        <StandingsTable rows={standings} />
+      <Hero locale={locale} />
+      <FeaturedGrid posts={featuredPosts} locale={locale} />
+      <div className="space-y-6">
+        <FixturesPanel fixtures={fixtures} locale={locale} />
+        <StandingsTable rows={standings} locale={locale} />
       </div>
       <section className="space-y-6">
         <SectionHeading
-          kicker="Fresh Notebook"
-          title="More reporting from the archive."
-          description="Recent posts keep the homepage connected to the broader blog listing and search flow."
+          kicker={dict.home.freshNotebook}
+          title={dict.home.freshTitle}
+          description={dict.home.freshDescription}
         />
-        <PostList posts={recentPosts} />
+        <PostList posts={recentPosts} locale={locale} />
       </section>
-      <NewsletterBanner />
+      <NewsletterBanner locale={locale} />
     </div>
   );
 }

@@ -1,22 +1,35 @@
 <svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="800" rx="40" fill="#101E24"/>
-  <rect x="40" y="40" width="1120" height="720" rx="30" fill="url(#grid)"/>
-  <path d="M260 220H950V590H260V220Z" stroke="#E7F0E7" stroke-opacity="0.75" stroke-width="5"/>
-  <path d="M950 300H820V510H950" stroke="#E7F0E7" stroke-opacity="0.75" stroke-width="5"/>
-  <path d="M260 300H390V510H260" stroke="#E7F0E7" stroke-opacity="0.75" stroke-width="5"/>
-  <circle cx="600" cy="400" r="120" stroke="#E7F0E7" stroke-opacity="0.75" stroke-width="5"/>
-  <circle cx="820" cy="340" r="34" fill="#E7F0E7"/>
-  <circle cx="770" cy="405" r="34" fill="#E7F0E7"/>
-  <circle cx="725" cy="470" r="34" fill="#E7F0E7"/>
-  <circle cx="630" cy="390" r="38" fill="#F0B35C"/>
-  <circle cx="560" cy="350" r="38" fill="#F0B35C"/>
-  <circle cx="550" cy="440" r="38" fill="#F0B35C"/>
-  <rect x="90" y="88" width="340" height="88" rx="20" fill="#132D37" fill-opacity="0.92"/>
-  <text x="126" y="142" fill="#E7F0E7" font-size="34" font-family="Arial, sans-serif" font-weight="700">SET PIECE LAB</text>
   <defs>
-    <linearGradient id="grid" x1="70" y1="50" x2="1040" y2="730" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#194554"/>
-      <stop offset="1" stop-color="#0D171B"/>
+    <linearGradient id="bg" x1="600" y1="40" x2="600" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0C2029"/>
+      <stop offset="1" stop-color="#091017"/>
+    </linearGradient>
+    <linearGradient id="grass" x1="600" y1="150" x2="600" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#215E54"/>
+      <stop offset="1" stop-color="#10332E"/>
     </linearGradient>
   </defs>
+  <rect width="1200" height="800" rx="40" fill="url(#bg)"/>
+  <rect x="130" y="118" width="940" height="612" rx="36" fill="url(#grass)"/>
+  <path d="M130 190H1070" stroke="#EAF2E6" stroke-opacity="0.18" stroke-width="4"/>
+  <path d="M130 300H1070" stroke="#EAF2E6" stroke-opacity="0.18" stroke-width="4"/>
+  <path d="M130 410H1070" stroke="#EAF2E6" stroke-opacity="0.18" stroke-width="4"/>
+  <path d="M130 520H1070" stroke="#EAF2E6" stroke-opacity="0.18" stroke-width="4"/>
+  <path d="M130 630H1070" stroke="#EAF2E6" stroke-opacity="0.18" stroke-width="4"/>
+  <path d="M130 214H440V636H130" stroke="#EDF4E8" stroke-opacity="0.72" stroke-width="5"/>
+  <path d="M1070 214H760V636H1070" stroke="#EDF4E8" stroke-opacity="0.72" stroke-width="5"/>
+  <path d="M440 304H130" stroke="#EDF4E8" stroke-opacity="0.72" stroke-width="5"/>
+  <path d="M760 304H1070" stroke="#EDF4E8" stroke-opacity="0.72" stroke-width="5"/>
+  <circle cx="600" cy="424" r="116" stroke="#EDF4E8" stroke-opacity="0.72" stroke-width="5"/>
+  <path d="M100 118L234 118L130 226V118H100Z" fill="#F0B35C"/>
+  <path d="M130 226L559 392" stroke="#F6D38A" stroke-opacity="0.6" stroke-width="3" stroke-dasharray="10 10"/>
+  <circle cx="559" cy="392" r="20" fill="#F6D38A"/>
+  <g opacity="0.96">
+    <circle cx="804" cy="300" r="25" fill="#F3F5EE"/>
+    <circle cx="756" cy="366" r="25" fill="#F3F5EE"/>
+    <circle cx="722" cy="440" r="25" fill="#F3F5EE"/>
+    <circle cx="655" cy="402" r="28" fill="#F0B35C"/>
+    <circle cx="590" cy="352" r="28" fill="#F0B35C"/>
+    <circle cx="571" cy="447" r="28" fill="#F0B35C"/>
+  </g>
 </svg>

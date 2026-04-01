@@ -1,20 +1,36 @@
 <svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="800" rx="40" fill="#07223E"/>
-  <rect x="40" y="40" width="1120" height="720" rx="30" fill="url(#ocean)"/>
-  <path d="M240 560C320 390 420 300 560 295C700 290 790 430 900 450C970 462 1015 430 1060 370" stroke="#F4F4F2" stroke-width="14" stroke-linecap="round"/>
-  <circle cx="348" cy="477" r="34" fill="#F4F4F2"/>
-  <circle cx="522" cy="356" r="34" fill="#F4F4F2"/>
-  <circle cx="700" cy="358" r="34" fill="#F4F4F2"/>
-  <circle cx="893" cy="440" r="34" fill="#F7B55E"/>
-  <rect x="180" y="220" width="180" height="84" rx="20" fill="#0E3A68"/>
-  <rect x="395" y="170" width="180" height="84" rx="20" fill="#165386"/>
-  <rect x="610" y="205" width="180" height="84" rx="20" fill="#1E6AA7"/>
-  <rect x="90" y="88" width="430" height="88" rx="20" fill="#0B1C31" fill-opacity="0.9"/>
-  <text x="126" y="142" fill="#F4F4F2" font-size="34" font-family="Arial, sans-serif" font-weight="700">RECRUITMENT ENGINE</text>
   <defs>
-    <linearGradient id="ocean" x1="80" y1="40" x2="1040" y2="730" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#0E4B7D"/>
-      <stop offset="1" stop-color="#071620"/>
+    <linearGradient id="sky" x1="600" y1="40" x2="600" y2="420" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0A2644"/>
+      <stop offset="1" stop-color="#144B7A"/>
     </linearGradient>
+    <linearGradient id="pitch" x1="600" y1="410" x2="600" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1B744C"/>
+      <stop offset="1" stop-color="#0E2E24"/>
+    </linearGradient>
+    <filter id="blur" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="20"/>
+    </filter>
   </defs>
+  <rect width="1200" height="800" rx="40" fill="#08192C"/>
+  <rect x="0" y="0" width="1200" height="420" fill="url(#sky)"/>
+  <rect x="0" y="410" width="1200" height="390" fill="url(#pitch)"/>
+  <ellipse cx="170" cy="108" rx="118" ry="42" fill="#FFF1D1" fill-opacity="0.84" filter="url(#blur)"/>
+  <ellipse cx="1030" cy="108" rx="118" ry="42" fill="#FFF1D1" fill-opacity="0.84" filter="url(#blur)"/>
+  <path d="M0 256C187 221 388 204 600 204C812 204 1013 221 1200 256V460H0V256Z" fill="#10283E"/>
+  <path d="M0 316C171 297 398 287 600 287C802 287 1028 297 1200 316V408H0V316Z" fill="#153553"/>
+  <path d="M215 800L379 537L600 506L821 537L985 800H215Z" fill="#0C1117" fill-opacity="0.84"/>
+  <path d="M404 539L600 492L794 539V800H404V539Z" fill="#101924"/>
+  <path d="M404 539H794" stroke="#DDE7EE" stroke-opacity="0.16" stroke-width="4"/>
+  <path d="M600 492V800" stroke="#DDE7EE" stroke-opacity="0.12" stroke-width="4"/>
+  <path d="M337 596H864" stroke="#F5F7F9" stroke-opacity="0.22" stroke-width="3"/>
+  <path d="M600 360L765 360" stroke="#E8F1F8" stroke-opacity="0.18" stroke-width="3"/>
+  <path d="M795 360L893 333" stroke="#F7D48C" stroke-opacity="0.72" stroke-width="3" stroke-dasharray="9 8" stroke-linecap="round"/>
+  <circle cx="900" cy="330" r="15" fill="#F7D48C"/>
+  <g opacity="0.92">
+    <circle cx="600" cy="564" r="40" fill="#1A2433"/>
+    <path d="M545 612C573 563 626 563 654 612L672 800H528L545 612Z" fill="#1A2433"/>
+  </g>
+  <rect x="515" y="646" width="170" height="90" rx="12" fill="#25384A"/>
+  <rect x="530" y="661" width="140" height="60" rx="8" fill="#79B6F2"/>
 </svg>
