@@ -1,0 +1,21 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="40" fill="#0B5D3B"/>
+  <rect x="40" y="40" width="1120" height="720" rx="30" fill="url(#field)"/>
+  <path d="M190 120H1010V680H190V120Z" stroke="#E7F5EA" stroke-opacity="0.8" stroke-width="5"/>
+  <path d="M600 120V680" stroke="#E7F5EA" stroke-opacity="0.8" stroke-width="5"/>
+  <circle cx="600" cy="400" r="95" stroke="#E7F5EA" stroke-opacity="0.85" stroke-width="5"/>
+  <circle cx="370" cy="395" r="32" fill="#F4F0E6"/>
+  <circle cx="470" cy="320" r="32" fill="#F4F0E6"/>
+  <circle cx="530" cy="455" r="32" fill="#F4F0E6"/>
+  <circle cx="665" cy="370" r="36" fill="#F08A4B"/>
+  <circle cx="748" cy="298" r="36" fill="#F08A4B"/>
+  <circle cx="795" cy="452" r="36" fill="#F08A4B"/>
+  <rect x="90" y="88" width="420" height="88" rx="20" fill="#0C1630" fill-opacity="0.92"/>
+  <text x="126" y="142" fill="#F4F0E6" font-size="34" font-family="Arial, sans-serif" font-weight="700">REST DEFENSE BLUEPRINT</text>
+  <defs>
+    <linearGradient id="field" x1="120" y1="80" x2="1060" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#127A4E"/>
+      <stop offset="1" stop-color="#0A4B31"/>
+    </linearGradient>
+  </defs>
+</svg>

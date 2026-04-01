@@ -1,0 +1,20 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="40" fill="#07223E"/>
+  <rect x="40" y="40" width="1120" height="720" rx="30" fill="url(#ocean)"/>
+  <path d="M240 560C320 390 420 300 560 295C700 290 790 430 900 450C970 462 1015 430 1060 370" stroke="#F4F4F2" stroke-width="14" stroke-linecap="round"/>
+  <circle cx="348" cy="477" r="34" fill="#F4F4F2"/>
+  <circle cx="522" cy="356" r="34" fill="#F4F4F2"/>
+  <circle cx="700" cy="358" r="34" fill="#F4F4F2"/>
+  <circle cx="893" cy="440" r="34" fill="#F7B55E"/>
+  <rect x="180" y="220" width="180" height="84" rx="20" fill="#0E3A68"/>
+  <rect x="395" y="170" width="180" height="84" rx="20" fill="#165386"/>
+  <rect x="610" y="205" width="180" height="84" rx="20" fill="#1E6AA7"/>
+  <rect x="90" y="88" width="430" height="88" rx="20" fill="#0B1C31" fill-opacity="0.9"/>
+  <text x="126" y="142" fill="#F4F4F2" font-size="34" font-family="Arial, sans-serif" font-weight="700">RECRUITMENT ENGINE</text>
+  <defs>
+    <linearGradient id="ocean" x1="80" y1="40" x2="1040" y2="730" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0E4B7D"/>
+      <stop offset="1" stop-color="#071620"/>
+    </linearGradient>
+  </defs>
+</svg>

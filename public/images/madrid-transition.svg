@@ -1,0 +1,18 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="40" fill="#0D1731"/>
+  <rect x="40" y="40" width="1120" height="720" rx="30" fill="url(#night)"/>
+  <path d="M180 600L420 430L640 500L910 270" stroke="#F4F0E6" stroke-width="18" stroke-linecap="round"/>
+  <path d="M865 280L910 270L890 315" stroke="#F4F0E6" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="260" cy="612" r="36" fill="#F4F0E6"/>
+  <circle cx="460" cy="430" r="36" fill="#F4F0E6"/>
+  <circle cx="670" cy="510" r="36" fill="#F4F0E6"/>
+  <circle cx="925" cy="255" r="42" fill="#F6C05C"/>
+  <rect x="90" y="88" width="420" height="88" rx="20" fill="#102A55" fill-opacity="0.9"/>
+  <text x="126" y="142" fill="#F4F0E6" font-size="34" font-family="Arial, sans-serif" font-weight="700">TRANSITION MONSTER</text>
+  <defs>
+    <linearGradient id="night" x1="70" y1="58" x2="1080" y2="710" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#183A70"/>
+      <stop offset="1" stop-color="#09101F"/>
+    </linearGradient>
+  </defs>
+</svg>

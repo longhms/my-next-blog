@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+:root {
+  --page: #f4efe3;
+  --page-deep: #e7dfcf;
+  --surface: rgba(255, 255, 255, 0.74);
+  --surface-strong: #0d1935;
+  --surface-soft: #efe7d9;
+  --ink: #122037;
+  --ink-muted: #566273;
+  --pitch: #197347;
+  --pitch-deep: #0d4d31;
+  --gold: #f0b35c;
+  --coral: #f08a4b;
+  --line: rgba(18, 32, 55, 0.12);
+  --font-display: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  --font-body: "Trebuchet MS", "Segoe UI", Verdana, sans-serif;
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-page-deep: var(--page-deep);
+  --color-surface: var(--surface);
+  --color-surface-strong: var(--surface-strong);
+  --color-surface-soft: var(--surface-soft);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-pitch: var(--pitch);
+  --color-pitch-deep: var(--pitch-deep);
+  --color-gold: var(--gold);
+  --color-coral: var(--coral);
+  --color-line: var(--line);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    min-height: 100vh;
+    background:
+      radial-gradient(circle at top left, rgba(25, 115, 71, 0.15), transparent 28%),
+      radial-gradient(circle at top right, rgba(240, 138, 75, 0.14), transparent 24%),
+      linear-gradient(180deg, var(--page) 0%, var(--page-deep) 100%);
+    color: var(--ink);
+    font-family: var(--font-body);
+  }
+
+  ::selection {
+    background: rgba(240, 138, 75, 0.3);
+  }
+}
+
+@layer components {
+  .page-shell {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .panel {
+    @apply rounded-[28px] border border-white/50 bg-white/70 shadow-[0_20px_70px_rgba(12,21,48,0.08)] backdrop-blur;
+  }
+
+  .panel-dark {
+    @apply rounded-[28px] border border-white/10 bg-surface-strong text-white shadow-[0_24px_80px_rgba(9,16,31,0.35)];
+  }
+
+  .display-title {
+    font-family: var(--font-display);
+    letter-spacing: -0.04em;
+    line-height: 0.94;
+    text-transform: uppercase;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center rounded-full border border-white/50 bg-white/60 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-ink-muted;
+  }
+
+  .rich-copy p {
+    @apply text-base leading-8 text-ink-muted sm:text-[1.05rem];
+  }
+
+  .rich-copy p + p {
+    @apply mt-4;
+  }
+
+  .field-input {
+    @apply w-full rounded-2xl border border-line bg-white/70 px-4 py-3 text-sm text-ink outline-none transition focus:border-pitch focus:ring-2 focus:ring-pitch/15;
+  }
+}

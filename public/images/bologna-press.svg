@@ -1,0 +1,20 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" rx="40" fill="#4A0B0F"/>
+  <rect x="40" y="40" width="1120" height="720" rx="30" fill="url(#pressure)"/>
+  <path d="M260 220L470 320L680 300L900 470" stroke="#F5E8E1" stroke-width="14" stroke-dasharray="18 18" stroke-linecap="round"/>
+  <circle cx="260" cy="220" r="36" fill="#F5E8E1"/>
+  <circle cx="470" cy="320" r="36" fill="#F5E8E1"/>
+  <circle cx="680" cy="300" r="36" fill="#F5E8E1"/>
+  <circle cx="900" cy="470" r="42" fill="#FF9966"/>
+  <rect x="160" y="470" width="150" height="110" rx="20" fill="#1B271B" fill-opacity="0.8"/>
+  <rect x="350" y="410" width="150" height="110" rx="20" fill="#1B271B" fill-opacity="0.65"/>
+  <rect x="545" y="360" width="150" height="110" rx="20" fill="#1B271B" fill-opacity="0.5"/>
+  <rect x="90" y="88" width="370" height="88" rx="20" fill="#210A0D" fill-opacity="0.9"/>
+  <text x="126" y="142" fill="#F5E8E1" font-size="34" font-family="Arial, sans-serif" font-weight="700">HANDCRAFTED PRESS</text>
+  <defs>
+    <linearGradient id="pressure" x1="70" y1="60" x2="1030" y2="740" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7D121A"/>
+      <stop offset="1" stop-color="#2E0B12"/>
+    </linearGradient>
+  </defs>
+</svg>
