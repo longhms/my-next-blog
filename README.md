@@ -1,16 +1,16 @@
-# 🚀 NextJS Pitchside Press Blog
+# ⚙️ NextJS Pitchside Press Blog
 
 Đây là một dự án blog được xây dựng nhằm thực hành và áp dụng các tính năng mới nhất của **Next.js (v15+)**.  
 Mục tiêu chính là tối ưu **hiệu năng**, cải thiện **trải nghiệm người dùng** và tuân theo **best practices** trong phát triển web hiện đại.
 
 ---
 
-## 🌐 Demo & Tài liệu
+## 🔗 Demo & Tài liệu
 
-- 🔗 Xem demo online:  
+- 📎 Xem demo online:  
   https://y-chi-silk.vercel.app/
 
-- 📄 Tài liệu hướng dẫn chi tiết:  
+- 📖 Tài liệu hướng dẫn chi tiết:  
   https://docs.google.com/document/d/1ulGRfOQJ396d2ZhwhgArG_7zTaHMFrTHRNMTUFlZrP0/edit?usp=sharing
 
 ---
@@ -69,13 +69,13 @@ Bash
 npm run dev
 Truy cập http://localhost:3000 để xem kết quả.
 
-### 👤 Thông tin tác giả
+### 🧑‍💻 Thông tin tác giả
 Tên: Nguyen Thanh Long
 
 Email: emlongmayman@gmail.com
 
 GitHub: longhms
 
-### Support
+### 💖 Support
 
 Nếu dự án hữu ích, đừng quên star repo để ủng hộ nhé!
